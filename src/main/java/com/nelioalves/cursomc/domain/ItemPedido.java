@@ -1,6 +1,7 @@
 package com.nelioalves.cursomc.domain;
 
-import javax.persistence.Embeddable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import java.io.Serializable;
@@ -9,6 +10,7 @@ import java.util.Objects;
 @Entity
 public class ItemPedido implements Serializable {
 
+    @JsonIgnore
     @EmbeddedId
     private ItemPedidoPk id = new ItemPedidoPk();
 
@@ -31,6 +33,7 @@ public class ItemPedido implements Serializable {
     public Pedido getPedido(){
         return id.getPedido();
     }
+
 
     public Produto getProduto(){
         return id.getProduto();
