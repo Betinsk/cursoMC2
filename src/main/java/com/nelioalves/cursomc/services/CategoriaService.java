@@ -1,5 +1,6 @@
 package com.nelioalves.cursomc.services;
 
+import com.nelioalves.cursomc.DTO.CategoriaDTO;
 import com.nelioalves.cursomc.domain.Categoria;
 import com.nelioalves.cursomc.repositories.CategoriaRepository;
 import com.nelioalves.cursomc.services.exceptios.DataIntegrityException;
@@ -51,6 +52,10 @@ public class CategoriaService {
         public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction) {
             PageRequest pageRequest = PageRequest.of(page, linesPerPage, Sort.Direction.valueOf(direction), orderBy);
             return repo.findAll(pageRequest);
+        }
+
+        public Categoria fromDTO(CategoriaDTO objDto) {
+        return new Categoria(objDto.getId(), objDto.getNome());
         }
 
     }
