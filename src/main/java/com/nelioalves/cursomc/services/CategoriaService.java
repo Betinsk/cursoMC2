@@ -2,6 +2,7 @@ package com.nelioalves.cursomc.services;
 
 import com.nelioalves.cursomc.DTO.CategoriaDTO;
 import com.nelioalves.cursomc.domain.Categoria;
+import com.nelioalves.cursomc.domain.Cliente;
 import com.nelioalves.cursomc.repositories.CategoriaRepository;
 import com.nelioalves.cursomc.services.exceptios.DataIntegrityException;
 import com.nelioalves.cursomc.services.exceptios.ObjectNotFoundException;
@@ -57,6 +58,8 @@ public class CategoriaService {
         public Categoria fromDTO(CategoriaDTO objDto) {
         return new Categoria(objDto.getId(), objDto.getNome());
         }
+
+
 
     }
 
