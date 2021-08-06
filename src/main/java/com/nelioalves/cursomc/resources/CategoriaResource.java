@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -22,7 +21,6 @@ public class CategoriaResource {
 
     @Autowired
     public CategoriaService service;
-
 
     @RequestMapping(value="{id}", method = RequestMethod.GET)
     public ResponseEntity<Categoria> find(@PathVariable Integer id){
@@ -62,7 +60,6 @@ public class CategoriaResource {
         List<CategoriaDTO> listDto = list.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
         return ResponseEntity.ok().body(listDto);
     }
-
 
     @RequestMapping(value = "/page", method = RequestMethod.GET)
     public ResponseEntity<Page<CategoriaDTO>> findPage(
